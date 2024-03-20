@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\empLoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
+});*/
+
+Route::get('/phpinfo', function () {
+    return phpinfo();
 });
+
+Route::get('/login',[empLoginController::class,'login']);
+Route::post('/register-user',[empLoginController::class,'registerUser'])->name('register-user');
+Route::get('/try',[empLoginController::class,'try'])->name('try');
+Route::post('/login-user',[empLoginController::class,'loginUser'])->name('login-user');
+Route::get('/dashboard',[empLoginController::class,'dashboard'])->name('dashboard');
+
+
+
